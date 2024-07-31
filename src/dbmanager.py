@@ -15,12 +15,14 @@ class DBManager:
         return self.cur.fetchall()
 
     def get_all_vacancies(self):
-        """получает список всех вакансий с указанием названия компании,
-         названия вакансии и зарплаты и ссылки на вакансию"""
-        self.cur.execute(
-            f"select employers.company_name, vacancies.vacancy_name, vacancies.salary_from, vacancies.vacancy_url "
-            f"from vacancies"
-            f"join employers using(employer_id)")
+        """
+        получает список всех вакансий с указанием названия компании, названия вакансии и зарплаты и ссылки на вакансию
+        """
+        self.cur.execute("""
+        SELECT employers.company_name, vacancy_name, salary_from, vacancy_url
+        FROM vacancies
+        JOIN employers USING (employer_id)
+        ORDER BY salary_from desc""")
         return self.cur.fetchall()
 
     def get_avg_salary(self):
