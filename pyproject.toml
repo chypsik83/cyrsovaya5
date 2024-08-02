@@ -1,13 +1,14 @@
 [tool.poetry]
-name = "Курсовая 5"
+name = "headhunter-best-vacancies"
 version = "0.1.0"
 description = ""
-authors = ["y"]
+authors = ["KateRomanova <kate.romanova@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-google-api-python-client = "^2.137.0"
+requests = "^2.31.0"
+psycopg2-binary = "^2.9.9"
 
 
 [build-system]
